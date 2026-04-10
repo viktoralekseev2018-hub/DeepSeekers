@@ -16,7 +16,7 @@ class TestProcessor(unittest.TestCase):
     """Тесты для основного процессора."""
     
     def test_single_service_no_split(self):
-        """Тест:单一 услуга без сплита."""
+        """Тест: 0 一 услуга без сплита."""
         result = process_advertisement(
             item_id=1,
             source_mc_id=108,
