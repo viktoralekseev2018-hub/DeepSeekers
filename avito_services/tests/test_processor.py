@@ -112,9 +112,7 @@ class TestProcessor(unittest.TestCase):
         ]
         
         metrics = evaluate_predictions(predictions, ground_truth)
-        
-        # Precision = 0 (предсказали 103, а нужно 102)
-        # Recall = 0 (не нашли 102)
+
         self.assertEqual(metrics['precision_micro'], 0.0)
         self.assertEqual(metrics['recall_micro'], 0.0)
 

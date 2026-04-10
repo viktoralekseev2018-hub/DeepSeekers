@@ -137,7 +137,7 @@ def generate_draft_text(description: str, mc_id: int, source_mc_id: int) -> str:
         key_phrases = mc.keyPhrases[:3]
         draft_text = f"Выполняем услуги: {', '.join(key_phrases)}."
     else:
-        # Берем топ-3 наиболее релевантных фрагмента
+        # 3 наиболее релевантных фрагмента
         top_fragments = [f[0] for f in relevant_fragments[:3]]
 
         # Объединяем фрагменты в связный текст

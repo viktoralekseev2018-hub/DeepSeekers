@@ -74,7 +74,6 @@ def calculate_phrase_score(phrase: str, normalized_text: str, mc_id: int) -> flo
     if len(phrase.split()) == 2:
         return 0.7
 
-    # Короткие фразы - только если они специфичные
     specific_short = {
         102: ["бойлер", "водонагреватель", "полотенцесушитель", "канализация", "водоснабжение", "инсталляция"],
         103: ["штробление", "электромонтаж", "проводка", "электрощит", "автоматы"],
@@ -109,7 +108,7 @@ def detect_microcategories(description: str) -> Set[int]:
     detected_ids = set()
     mc_scores = defaultdict(float)  # Накопленные баллы для каждой МК
 
-    # Сначала проверяем приоритетные фразы для каждой категории
+    # проверяем приоритетные фразы для каждой категории
     priority_phrases = {
         101: ["ремонт под ключ", "комплексный ремонт", "полный ремонт", "комплекс работ", "генподряд"],
         102: ["сантехника", "сантехнические работы", "монтаж сантехники", "разводка труб", "опрессовка труб"],
@@ -149,7 +148,7 @@ def detect_microcategories(description: str) -> Set[int]:
                 score = calculate_phrase_score(norm_phrase, normalized, mc.mcId)
                 mc_scores[mc.mcId] = max(mc_scores[mc.mcId], score)
 
-                # Если分数 выше порога - добавляем категорию
+                # Если выше порога - добавляем категорию
                 if score >= 0.6:
                     detected_ids.add(mc.mcId)
                     break
