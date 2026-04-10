@@ -89,7 +89,9 @@ def main():
         truth = data[i]
         print(f"\n--- Объявление #{pred['itemId']} ---")
         print(f"Исходная МК: {truth['sourceMcTitle']}")
-        print(f"Текст: {truth['description'][:100]}...")
+        # print(f"Текст: {truth['description'][:100]}")
+        print(f"Текст: {truth['description']}")
+
         print(f"detectedMcIds: {pred['detectedMcIds']}")
         print(f"Эталон detected: {truth['targetDetectedMcIds']}")
         print(f"shouldSplit: {pred['shouldSplit']} (эталон: {truth['shouldSplit']})")
